@@ -1,0 +1,16 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: code-with-quarkus
+  labels:
+    app: code-with-quarkus
+    router.dombif.peru/privado: 'true'
+spec:
+  host: code-with-quarkus.apps.dombif.peru
+  to:
+    kind: Service
+    name: code-with-quarkus
+    weight: 100
+  tls:
+    termination: edge
+  wildcardPolicy: None
